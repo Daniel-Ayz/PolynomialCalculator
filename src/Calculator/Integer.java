@@ -16,11 +16,11 @@ public class Integer implements Scalar{
         return s.add(this);
     }
 
-    private Scalar add(Integer s){
+    public Scalar add(Integer s){
         return new Integer(this.number+s.number);
     }
 
-    private Scalar add(Rational s){
+    public Scalar add(Rational s){
         return new Rational(s.getNumerator()+(this.number*s.getDenominator()),s.getDenominator());
     }
 
@@ -29,11 +29,11 @@ public class Integer implements Scalar{
         return s.mul(this);
     }
 
-    private Scalar mul(Integer s){
+    public Scalar mul(Integer s){
         return new Integer(this.number*s.number);
     }
 
-    private Scalar mul(Rational s){
+    public Scalar mul(Rational s){
         return new Rational(s.getNumerator()*this.number,s.getDenominator());
     }
 

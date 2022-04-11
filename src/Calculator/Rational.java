@@ -22,11 +22,11 @@ public class Rational implements Scalar{
         return s.add(this);
     }
 
-    private Scalar add(Integer s) {
+    public Scalar add(Integer s) {
         return new Rational((s.getNumber()*this.denominator)+this.numerator,this.denominator);
     }
 
-    private Scalar add(Rational s) {
+    public Scalar add(Rational s) {
         return new Rational((this.numerator*s.denominator)+(s.numerator*this.denominator),this.denominator*s.denominator);
     }
 
@@ -35,11 +35,11 @@ public class Rational implements Scalar{
         return s.mul(this);
     }
 
-    private Scalar mul(Integer s) {
+    public Scalar mul(Integer s) {
         return new Rational(s.getNumber()*this.numerator,this.denominator);
     }
 
-    private Scalar mul(Rational s) {
+    public Scalar mul(Rational s) {
         return new Rational(this.numerator*s.numerator,this.denominator*s.denominator);
     }
 
