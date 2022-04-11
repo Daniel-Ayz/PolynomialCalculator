@@ -5,5 +5,5 @@ public interface Scalar {
     Scalar mul(Scalar s);
     Scalar neg();
     Scalar power(int exponent);
-    Scalar sign();
+    int sign();
 }
