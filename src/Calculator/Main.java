@@ -20,9 +20,17 @@ public class Main {
 
         Polynomial p1=Polynomial.build("1 2 3");
         Polynomial p2=Polynomial.build("0 1 2 3");
+        Polynomial p3=Polynomial.build("0 0 0    0 0      0 7");
+        Polynomial p4=Polynomial.build("5 ");
         Polynomial sum=p1.add(p2);
+        Polynomial sum2=p3.add(p4);
         System.out.println(p1);
         System.out.println(p2);
+        System.out.println(p3);
+        System.out.println(p4);
         System.out.println(sum);
+        System.out.println(sum2);
+        Polynomial mul=sum.mul(sum2);
+        System.out.println(mul);
     }
 }

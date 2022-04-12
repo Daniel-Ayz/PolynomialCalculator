@@ -41,21 +41,46 @@ public class Polynomial {
     }
 
     public Polynomial mul(Polynomial p){
-        return null;
+        Polynomial result=new Polynomial();
+        for(Map.Entry<java.lang.Integer,Monomial> entry : p.monomials.entrySet()) {
+            Polynomial sub = new Polynomial();
+            Monomial m = entry.getValue();
+            for(Map.Entry<java.lang.Integer,Monomial> subEntry : this.monomials.entrySet()) {
+                sub.monomials.put(subEntry.getKey()+entry.getKey(), subEntry.getValue().mul(m));
+            }
+            result=result.add(sub);
+        }
+        return result;
     }
 
     public Scalar evaluate(Scalar s){
-        return null;
+        Scalar result=new Rational(0,1);
+        for(Map.Entry<java.lang.Integer,Monomial> entry : this.monomials.entrySet()) {
+            result=result.add(entry.getValue().evaluate(s));
+        }
+        return result;
     }
 
     public Polynomial derivative(){
-        return null;
+        Polynomial result=new Polynomial();
+        for(Map.Entry<java.lang.Integer,Monomial> entry : this.monomials.entrySet()) {
+            if(entry.getKey()!=0){
+                result.monomials.put(entry.getKey()-1, entry.getValue().derivative());
+            }
+        }
+        return result;
     }
 
     @Override
     public String toString() {
-        return "Polynomial{" +
-                "monomials=" + monomials +
-                '}';
+        String str="";
+        for(Map.Entry<java.lang.Integer,Monomial> entry : this.monomials.entrySet()) {
+            if(!str.equals("") && entry.getValue().sign()>0)
+                str=str+"+"+entry.getValue().toString();
+            else
+                str=str+entry.getValue().toString();
+        }
+        return str;
     }
+
 }
