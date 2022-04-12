@@ -49,4 +49,47 @@ public class Monomial {
         }
         return this.coefficient.toString()+ans;
     }
+
+    //static functions
+
+    protected static Monomial build(String coef,int exponent){
+        int number=0;
+        int divisor=0;
+        boolean minus=false;
+        boolean rational=false;
+        int c=0;
+        while(c<coef.length()){
+            char ch=coef.charAt(c);
+            if(ch=='-')
+                minus=!minus;
+            else if(ch=='/')
+                rational=true;
+            else if(!rational)
+                number=number*10+charToInt(ch);
+            else
+                divisor=divisor*10+charToInt(ch);
+            c++;
+        }
+        Scalar s=createScalar(minus,number,divisor);
+        return new Monomial(exponent,s);
+    }
+
+    private static int charToInt(char c){
+        return "0123456789".indexOf(c);
+    }
+
+    private static Scalar createScalar(boolean minus,int number,int divider){
+        if(divider==0){
+            if(minus)
+                return new Integer(-1*number);
+            else
+                return new Integer(number);
+        }
+        else{
+            if(minus)
+                return new Rational(-1*number,divider);
+            else
+                return new Rational(number,divider);
+        }
+    }
 }
