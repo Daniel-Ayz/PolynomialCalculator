@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2dae9c8e-458b-46c4-a34c-37e41a72aa89" name="Changes" comment="Version 2.1">
-      <change beforePath="$PROJECT_DIR$/src/Calculator/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Calculator/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PolynomialCalculator/Calculator/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PolynomialCalculator/Calculator/Main.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,6 +144,7 @@
       <workItem from="1649776124243" duration="8695000" />
       <workItem from="1649797302917" duration="397000" />
       <workItem from="1649845682445" duration="1448000" />
+      <workItem from="1649847707068" duration="348000" />
     </task>
     <task id="LOCAL‎00001" summary="Version 1">
       <created>1649594432235</created>
