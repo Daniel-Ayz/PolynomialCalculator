@@ -32,5 +32,6 @@ public class Main {
         System.out.println(sum2);
         Polynomial mul=sum.mul(sum2);
         System.out.println(mul);
+        System.out.println("Version2");
     }
 }
