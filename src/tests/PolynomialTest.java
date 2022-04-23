@@ -1,4 +1,4 @@
-package Calculator;
+package tests;
 
 import Calculator.Polynomial;
 import Calculator.Monomial;
@@ -23,26 +23,26 @@ class PolynomialTest {
     void setUp() {
         p2 = new Polynomial();
         TreeMap<java.lang.Integer, Monomial> map1 = new TreeMap<>();
-        map1.put(0, new Monomial(0, new Integer(1)));
-        map1.put(1, new Monomial(1, new Integer(2)));
-        map1.put(2, new Monomial(2, new Integer(3)));
+        map1.put(0, new Monomial(0, new Calculator.Integer(1)));
+        map1.put(1, new Monomial(1, new Calculator.Integer(2)));
+        map1.put(2, new Monomial(2, new Calculator.Integer(3)));
         p2.setMonomials(map1);
 
         p3 = new Polynomial();
         TreeMap<java.lang.Integer, Monomial> map2 = new TreeMap<>();
-        map2.put(1, new Monomial(1, new Integer(-1)));
-        map2.put(2, new Monomial(2, new Integer(2)));
-        map2.put(3, new Monomial(3, new Integer(3)));
+        map2.put(1, new Monomial(1, new Calculator.Integer(-1)));
+        map2.put(2, new Monomial(2, new Calculator.Integer(2)));
+        map2.put(3, new Monomial(3, new Calculator.Integer(3)));
         p3.setMonomials(map2);
 
         p4 = new Polynomial();
         TreeMap<java.lang.Integer, Monomial> map3 = new TreeMap<>();
-        map3.put(6, new Monomial(6, new Integer(7)));
+        map3.put(6, new Monomial(6, new Calculator.Integer(7)));
         p4.setMonomials(map3);
 
         p5 = new Polynomial();
         TreeMap<java.lang.Integer, Monomial> map4 = new TreeMap<>();
-        map4.put(0, new Monomial(0, new Integer(5)));
+        map4.put(0, new Monomial(0, new Calculator.Integer(5)));
         p5.setMonomials(map4);
 
         p6 = new Polynomial();
@@ -98,7 +98,7 @@ class PolynomialTest {
 
     @Test
     void evaluate1() {
-        Assertions.assertEquals(new Integer(1),p2.evaluate(new Integer(0)));
+        Assertions.assertEquals(new Calculator.Integer(1),p2.evaluate(new Calculator.Integer(0)));
     }
 
     @Test
@@ -108,7 +108,7 @@ class PolynomialTest {
 
     @Test
     void evaluate3() {
-        Assertions.assertEquals(new Integer(2),p2.evaluate(new Integer(-1)));
+        Assertions.assertEquals(new Calculator.Integer(2),p2.evaluate(new Calculator.Integer(-1)));
     }
 
     @Test
