@@ -1,5 +1,7 @@
 package Calculator;
 
+import java.util.Objects;
+
 public class Rational implements Scalar{
     private int numerator;
     private int denominator;
@@ -79,6 +81,26 @@ public class Rational implements Scalar{
         if(b==0)
             return a;
         return gcd(b,a%b);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o instanceof Rational) {
+            Rational rational = (Rational) o;
+            Rational reduced = this.reduce();
+            Rational reducedO = rational.reduce();
+            return (reduced.numerator == reducedO.numerator && reduced.denominator == reducedO.denominator);
+        }
+        if (o instanceof Integer){
+            Integer integer = (Integer) o;
+            Rational reduced = this.reduce();
+            if (reduced.getDenominator() != 1)
+                return false;
+            return integer.getNumber() == reduced.getNumerator();
+        }
+
+        return false;
     }
 
     @Override

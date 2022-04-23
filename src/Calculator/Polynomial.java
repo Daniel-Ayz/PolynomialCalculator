@@ -1,6 +1,7 @@
 package Calculator;
 
 import java.util.Map;
+import java.util.Objects;
 import java.util.TreeMap;
 
 public class Polynomial {
@@ -8,6 +9,10 @@ public class Polynomial {
 
     public Polynomial() {
         this.monomials = new TreeMap<>();
+    }
+
+    public void setMonomials(TreeMap<java.lang.Integer, Monomial> monomials) {
+        this.monomials = monomials;
     }
 
     protected Polynomial clone(){
@@ -32,8 +37,13 @@ public class Polynomial {
         Polynomial result=clone();
         for(Map.Entry<java.lang.Integer,Monomial> entry : p.monomials.entrySet()) {
             java.lang.Integer key=entry.getKey();
-            if(result.monomials.containsKey(key))
-                result.monomials.put(key,entry.getValue().add(result.monomials.get(key)));
+            if(result.monomials.containsKey(key)) {
+                Monomial m = entry.getValue().add(result.monomials.get(key));
+                if (m.sign() != 0)
+                    result.monomials.put(key, m);
+                else
+                    result.monomials.remove(key);
+            }
             else
                 result.monomials.put(key,entry.getValue());
         }
@@ -69,6 +79,14 @@ public class Polynomial {
             }
         }
         return result;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Polynomial that = (Polynomial) o;
+        return monomials.equals(that.monomials);
     }
 
     @Override

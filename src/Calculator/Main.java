@@ -30,8 +30,10 @@ public class Main {
         System.out.println(p4);
         System.out.println(sum);
         System.out.println(sum2);
-        Polynomial mul=sum.mul(sum2);
-        System.out.println(mul);
+        Polynomial mul1=p1.mul(p2);
+        Polynomial mul2=p3.mul(p4);
+        System.out.println(mul1);
+        System.out.println(mul2);
         System.out.println("Version2");
         System.out.println("check for class files");
     }
