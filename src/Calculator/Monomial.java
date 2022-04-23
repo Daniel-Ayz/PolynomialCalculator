@@ -1,5 +1,7 @@
 package Calculator;
 
+import java.util.Objects;
+
 public class Monomial {
     private int exponent;
     private Scalar coefficient;
@@ -31,6 +33,14 @@ public class Monomial {
         return this.coefficient.sign();
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Monomial monomial = (Monomial) o;
+        return exponent == monomial.exponent && coefficient.equals(monomial.coefficient);
+    }
+
     public String toString(){
         String ans="";
         if(this.exponent==1)
@@ -45,7 +55,7 @@ public class Monomial {
         else if((this.coefficient.add(new Integer(1))).sign()==0) {
             if (ans.equals(""))
                 return "-1";
-            return ans;
+            return "-"+ans;
         }
         return this.coefficient.toString()+ans;
     }
